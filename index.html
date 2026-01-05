@@ -16,7 +16,7 @@ body{
 section{
   min-height:100vh;
   padding:60px 20px;
-  display:flex;
+  display:none;
   flex-direction:column;
   justify-content:center;
   align-items:center;
@@ -24,14 +24,15 @@ section{
 h1,h2{color:#ff4d88}
 button{
   background:#ff4d88;
-  color:#fff;
+  color:white;
   border:none;
-  padding:14px 22px;
+  padding:14px 24px;
   border-radius:25px;
   font-size:16px;
   cursor:pointer;
-  margin:8px;
+  margin-top:20px;
 }
+button:hover{background:#ff1f6a}
 input{
   padding:12px;
   border-radius:15px;
@@ -43,15 +44,7 @@ input{
 img{
   max-width:260px;
   border-radius:20px;
-  margin:10px;
-}
-.tap{
-  margin-top:20px;
-  animation:bounce 1.5s infinite;
-}
-@keyframes bounce{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(10px)}
+  margin:15px 0;
 }
 .heart{
   position:fixed;
@@ -60,15 +53,6 @@ img{
   animation:fall 5s linear infinite;
 }
 @keyframes fall{to{transform:translateY(100vh)}}
-.confetti{
-  position:fixed;
-  width:10px;
-  height:10px;
-  animation:conf 3s linear forwards;
-}
-@keyframes conf{
-  to{transform:translateY(100vh) rotate(360deg);opacity:0}
-}
 </style>
 </head>
 
@@ -79,102 +63,96 @@ img{
 </audio>
 
 <!-- PASSWORD -->
-<section id="s0">
-  <h1>🔐 Halaman Rahasia</h1>
-  <p>Cuma kita yang tau 🤍</p>
-  <input id="pw" type="password" inputmode="numeric">
-  <br><br>
-  <button onclick="cek()">Masuk 💕</button>
+<section id="s0" style="display:flex">
+<h1>🔐 Halaman Rahasia</h1>
+<p>Cuma kita yang tau 🤍</p>
+<input id="pw" type="password" inputmode="numeric">
+<button onclick="cek()">Masuk 💕</button>
 </section>
 
-<section id="s1" style="display:none">
-  <h1>HALO CINTAKU CAYANGKU PUNYAKU 💕</h1>
-  <p>Siap baca cerita kita?</p>
-  <button onclick="next()">Siap dong 😘</button>
-  <div class="tap">👇 tap</div>
+<section id="s1">
+<h1>HALO CINTAKU CAYANGKU PUNYAKU 💕</h1>
+<p>Siap baca cerita kita?</p>
+<button onclick="next()">Siap dong 😘</button>
 </section>
 
-<section id="s2" style="display:none">
-  <h2>💖 Alvan & Anisa 💖</h2>
-  <p>Kita sudah bersama:</p>
-  <h1 id="counter">1089 hari 💞</h1>
-  <img id="slider" src="foto1.jpg">
+<section id="s2">
+<h2>💖 Alvan & Anisa 💖</h2>
+<p>Kita sudah bersama sejak</p>
+<p><b>12 Januari 2023</b></p>
+<h1 id="counter"></h1>
+<img src="foto1.jpg">
+<button onclick="next()">Lanjut 💗</button>
 </section>
 
-<section id="s3" style="display:none">
-  <h2>📅 Timeline Receh</h2>
-  <p>• Tahun 1: Masih jaim 😇</p>
-  <p>• Tahun 2: Berantem hal kecil 😤</p>
-  <p>• Tahun 3: Tetap bareng 💞</p>
-  <img src="foto2.jpg">
+<section id="s3">
+<h2>📅 Timeline Receh</h2>
+<p>• Tahun 1: Masih jaim 😇</p>
+<p>• Tahun 2: Berantem hal kecil 😤</p>
+<p>• Tahun 3: Tetap bareng 💞</p>
+<img src="foto2.jpg">
+<button onclick="next()">Lanjut ➡️</button>
 </section>
 
-<section id="s4" style="display:none">
-  <h2>☑ Alasan Aku Pilih Kamu</h2>
-  <p>✔ Lucu walau nyebelin</p>
-  <p>✔ Ngambek tapi gemes</p>
-  <p>✔ Paling ngerti aku</p>
-  <p>✔ Jodoh (aamiin 😌)</p>
+<section id="s4">
+<h2>☑ Alasan Aku Pilih Kamu</h2>
+<p>✔ Lucu walau nyebelin</p>
+<p>✔ Ngambek tapi gemes</p>
+<p>✔ Paling ngerti aku</p>
+<p>✔ Jodoh (aamiin 😌)</p>
+<button onclick="next()">Lanjut 🥰</button>
 </section>
 
-<section id="s5" style="display:none">
-  <h2>😈 Pertanyaan Penting</h2>
-  <p>Kamu sayang aku nggak?</p>
-  <button onclick="love()">SAYANG 💖</button>
-  <button id="no" onmouseover="kabur()">NGGAK 💔</button>
+<section id="s5">
+<h2>😈 Pertanyaan Penting</h2>
+<p>Kamu sayang aku nggak?</p>
+<button onclick="love()">SAYANG 💖</button>
+<button id="no" onmouseover="kabur()">NGGAK 💔</button>
 </section>
 
-<section id="s6" style="display:none">
-  <h2>💌 Surat Cinta</h2>
-  <p>
-    3 tahun ini nggak selalu mudah,<br>
-    tapi aku selalu milih kamu.<br><br>
-    Makasih sudah bertahan sama aku 🤍
-  </p>
-  <img src="foto3.jpg">
+<section id="s6">
+<h2>💌 Surat Cinta</h2>
+<p>
+3 tahun ini nggak selalu mudah,<br>
+tapi aku selalu milih kamu.<br><br>
+Makasih sudah bertahan sama aku 🤍
+</p>
+<img src="foto3.jpg">
+<button onclick="next()">Terakhir 💞</button>
 </section>
 
-<section id="s7" style="display:none">
-  <h1>🎉 HAPPY 3RD ANNIVERSARY 🎉</h1>
-  <p>Aku sayang kamu hari ini, besok, selamanya 💖</p>
+<section id="s7">
+<h1>🎉 HAPPY 3RD ANNIVERSARY 🎉</h1>
+<p>Aku sayang kamu hari ini, besok, dan selamanya 💖</p>
 </section>
 
 <script>
 let step=0;
 const total=7;
-const photos=["foto1.jpg","foto2.jpg","foto3.jpg"];
-let idx=0;
-let counterTimer;
-let autoNextTimer;
 
+// password
 function cek(){
   if(document.getElementById("pw").value==="120123"){
     document.getElementById("music").play();
     show(1);
   }else{
-    alert("Hehe salah 😝");
+    alert("Password salah 😝");
   }
 }
 
 function show(n){
   for(let i=0;i<=total;i++){
-    let s=document.getElementById("s"+i);
+    const s=document.getElementById("s"+i);
     if(s) s.style.display="none";
   }
   document.getElementById("s"+n).style.display="flex";
   step=n;
-
-  if(n===2){
-    startCounter();
-  }
 }
 
 function next(){
   if(step<total){
     show(step+1);
-    navigator.vibrate?.(50);
   }
-  if(step+1===7) confetti();
 }
 
 function kabur(){
@@ -182,7 +160,6 @@ function kabur(){
   b.style.position="absolute";
   b.style.left=Math.random()*80+"%";
   b.style.top=Math.random()*80+"%";
-  navigator.vibrate?.([100,50,100]);
 }
 
 function love(){
@@ -190,42 +167,22 @@ function love(){
   next();
 }
 
-/* COUNTER LIVE + AUTO NEXT */
-const startDate = new Date("2023-01-12T00:00:00");
-
-function startCounter(){
-  const el=document.getElementById("counter");
-  clearInterval(counterTimer);
-  clearTimeout(autoNextTimer);
-
-  counterTimer=setInterval(()=>{
-    const now=new Date();
-    let diff=now-startDate;
-
-    let days=Math.floor(diff/(1000*60*60*24));
-    let hours=Math.floor((diff/(1000*60*60))%24);
-    let minutes=Math.floor((diff/(1000*60))%60);
-    let seconds=Math.floor((diff/1000)%60);
-
-    el.innerHTML=`
-      ${days} hari<br>
-      ${hours} jam ${minutes} menit ${seconds} detik 💞
-    `;
-  },1000);
-
-  autoNextTimer=setTimeout(()=>{
-    clearInterval(counterTimer);
-    next();
-  },4000);
-}
-
-/* SLIDER */
+// COUNTER LIVE
+const start=new Date("2023-01-12T00:00:00");
 setInterval(()=>{
-  const s=document.getElementById("slider");
-  if(s){idx=(idx+1)%photos.length;s.src=photos[idx]}
-},2500);
+  const now=new Date();
+  const diff=now-start;
+  const hari=Math.floor(diff/(1000*60*60*24));
+  const jam=Math.floor(diff/(1000*60*60))%24;
+  const menit=Math.floor(diff/(1000*60))%60;
+  const detik=Math.floor(diff/1000)%60;
+  const el=document.getElementById("counter");
+  if(el){
+    el.innerHTML=`${hari} hari<br>${jam} jam ${menit} menit ${detik} detik 💕`;
+  }
+},1000);
 
-/* HEART */
+// animasi hati
 setInterval(()=>{
   let h=document.createElement("div");
   h.className="heart";
@@ -234,18 +191,6 @@ setInterval(()=>{
   document.body.appendChild(h);
   setTimeout(()=>h.remove(),5000);
 },2500);
-
-/* CONFETTI */
-function confetti(){
-  for(let i=0;i<80;i++){
-    let c=document.createElement("div");
-    c.className="confetti";
-    c.style.left=Math.random()*100+"vw";
-    c.style.background=`hsl(${Math.random()*360},100%,70%)`;
-    document.body.appendChild(c);
-    setTimeout(()=>c.remove(),3000);
-  }
-}
 </script>
 
 </body>
