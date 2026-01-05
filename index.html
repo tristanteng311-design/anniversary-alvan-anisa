@@ -149,6 +149,8 @@ img {
   <button onclick="next()">Terakhir 💞</button>
 </section>
 
+
+
 <!-- S7 -->
 <section id="s7">
   <h1>Happy 3rd Anniversary ❤️</h1>
@@ -159,6 +161,20 @@ img {
 let step = 1;
 const total = 7;
 const music = document.getElementById("music");
+
+let step=0;
+const total=7;
+
+// password
+function cek(){
+  if(document.getElementById("pw").value==="120123"){
+    document.getElementById("music").play();
+    show(1);
+  }else{
+    alert("Password salah 😝");
+  }
+}
+
 
 // musik nyala setelah klik pertama
 function start() {
