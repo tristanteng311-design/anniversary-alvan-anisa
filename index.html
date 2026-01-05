@@ -46,6 +46,16 @@ button:hover {
   background: #ff1f6a;
 }
 
+input {
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+  font-size: 18px;
+  text-align: center;
+  width: 160px;
+  margin: 10px 0;
+}
+
 img {
   max-width: 260px;
   border-radius: 20px;
@@ -94,8 +104,16 @@ img {
   <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7c59a3cc8f.mp3">
 </audio>
 
+<!-- PASSWORD -->
+<section id="s0" class="active">
+  <h1>🔐 Halaman Rahasia</h1>
+  <p>Cuma kita yang tau 🤍</p>
+  <input type="password" id="pw" inputmode="numeric">
+  <button onclick="cek()">Masuk 💕</button>
+</section>
+
 <!-- S1 -->
-<section id="s1" class="active">
+<section id="s1">
   <h1>HALO CINTAKU CAYANGKU PUNYAKU 💕</h1>
   <p>Siap baca cerita kita selama 3 tahun?</p>
   <button onclick="start()">Siap dong 😘</button>
@@ -105,7 +123,7 @@ img {
 <!-- S2 -->
 <section id="s2">
   <h2>💖 Alvan & Anisa 💖</h2>
-  <p>3 tahun pacaran, masih bertahan walau sama-sama nyebelin</p>
+  <p>Sejak <b>12 Januari 2023</b>, kita masih bareng 💞</p>
   <img id="slider" src="foto1.jpg">
   <button onclick="next()">Lanjut 💗</button>
 </section>
@@ -149,8 +167,6 @@ img {
   <button onclick="next()">Terakhir 💞</button>
 </section>
 
-
-
 <!-- S7 -->
 <section id="s7">
   <h1>Happy 3rd Anniversary ❤️</h1>
@@ -158,49 +174,52 @@ img {
 </section>
 
 <script>
-let step = 1;
+let step = 0;
 const total = 7;
 const music = document.getElementById("music");
 
-let step=0;
-const total=7;
-
-// password
+// cek password
 function cek(){
-  if(document.getElementById("pw").value==="120123"){
-    document.getElementById("music").play();
+  if(document.getElementById("pw").value === "120123"){
+    music.play();
     show(1);
-  }else{
+  } else {
     alert("Password salah 😝");
   }
 }
 
+// tampilkan halaman
+function show(n){
+  for(let i=0;i<=total;i++){
+    const s = document.getElementById("s"+i);
+    if(s) s.classList.remove("active");
+  }
+  document.getElementById("s"+n).classList.add("active");
+  step = n;
+}
 
-// musik nyala setelah klik pertama
-function start() {
-  music.play();
+// klik pertama
+function start(){
   next();
 }
 
-// pindah halaman
-function next() {
-  document.getElementById("s"+step).classList.remove("active");
-  step++;
-  if (step <= total) {
-    document.getElementById("s"+step).classList.add("active");
-    if (step === 7) confettiBoom();
+// lanjut manual
+function next(){
+  if(step < total){
+    show(step+1);
+    if(step+1 === 7) confettiBoom();
   }
 }
 
 // tombol kabur
-function kabur() {
+function kabur(){
   const btn = document.getElementById("no");
   btn.style.position = "absolute";
   btn.style.left = Math.random()*70 + "%";
   btn.style.top = Math.random()*70 + "%";
 }
 
-function love() {
+function love(){
   alert("Aku tau kok 😘💖");
   next();
 }
@@ -208,27 +227,27 @@ function love() {
 // slider foto
 const photos = ["foto1.jpg","foto2.jpg","foto3.jpg"];
 let idx = 0;
-setInterval(() => {
+setInterval(()=>{
   const img = document.getElementById("slider");
-  if (img) {
-    idx = (idx + 1) % photos.length;
+  if(img){
+    idx = (idx+1)%photos.length;
     img.src = photos[idx];
   }
-}, 2500);
+},2500);
 
 // hati jatuh
-setInterval(() => {
+setInterval(()=>{
   const h = document.createElement("div");
   h.className = "heart";
   h.innerHTML = "💗";
   h.style.left = Math.random()*100 + "vw";
   document.body.appendChild(h);
   setTimeout(()=>h.remove(),5000);
-}, 2000);
+},2000);
 
 // confetti ending
-function confettiBoom() {
-  for (let i = 0; i < 40; i++) {
+function confettiBoom(){
+  for(let i=0;i<40;i++){
     const c = document.createElement("div");
     c.className = "confetti";
     c.innerHTML = "🎉";
