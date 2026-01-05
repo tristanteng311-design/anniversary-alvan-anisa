@@ -6,53 +6,85 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{
-  margin:0;
-  font-family:'Comic Sans MS',cursive;
-  background:linear-gradient(#ffd6e8,#fff);
-  text-align:center;
-  overflow-x:hidden;
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive;
+  background: linear-gradient(#ffd6e8, #fff);
+  text-align: center;
+  overflow: hidden;
 }
-section{
-  min-height:100vh;
-  padding:60px 20px;
-  display:none;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+
+section {
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-h1,h2{color:#ff4d88}
-button{
-  background:#ff4d88;
-  color:white;
-  border:none;
-  padding:14px 24px;
-  border-radius:25px;
-  font-size:16px;
-  cursor:pointer;
-  margin-top:20px;
+
+section.active {
+  display: flex;
 }
-button:hover{background:#ff1f6a}
-input{
-  padding:12px;
-  border-radius:15px;
-  border:none;
-  text-align:center;
-  font-size:18px;
-  width:160px;
+
+h1, h2 {
+  color: #ff4d88;
 }
-img{
-  max-width:260px;
-  border-radius:20px;
-  margin:15px 0;
+
+button {
+  background: #ff4d88;
+  color: white;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px;
 }
-.heart{
-  position:fixed;
-  top:-10px;
-  font-size:20px;
-  animation:fall 5s linear infinite;
+
+button:hover {
+  background: #ff1f6a;
 }
-@keyframes fall{to{transform:translateY(100vh)}}
+
+img {
+  max-width: 260px;
+  border-radius: 20px;
+  margin: 15px 0;
+}
+
+/* indikator tap */
+.tap {
+  position: absolute;
+  bottom: 20px;
+  font-size: 14px;
+  color: #ff4d88;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* hati jatuh */
+.heart {
+  position: fixed;
+  top: -10px;
+  font-size: 20px;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh); }
+}
+
+/* confetti */
+.confetti {
+  position: fixed;
+  top: -10px;
+  font-size: 18px;
+  animation: fall 3s linear forwards;
+}
 </style>
 </head>
 
@@ -62,135 +94,133 @@ img{
   <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7c59a3cc8f.mp3">
 </audio>
 
-<!-- PASSWORD -->
-<section id="s0" style="display:flex">
-<h1>🔐 Halaman Rahasia</h1>
-<p>Cuma kita yang tau 🤍</p>
-<input id="pw" type="password" inputmode="numeric">
-<button onclick="cek()">Masuk 💕</button>
+<!-- S1 -->
+<section id="s1" class="active">
+  <h1>HALO CINTAKU CAYANGKU PUNYAKU 💕</h1>
+  <p>Siap baca cerita kita selama 3 tahun?</p>
+  <button onclick="start()">Siap dong 😘</button>
+  <div class="tap">👇 tap</div>
 </section>
 
-<section id="s1">
-<h1>HALO CINTAKU CAYANGKU PUNYAKU 💕</h1>
-<p>Siap baca cerita kita?</p>
-<button onclick="next()">Siap dong 😘</button>
-</section>
-
+<!-- S2 -->
 <section id="s2">
-<h2>💖 Alvan & Anisa 💖</h2>
-<p>Kita sudah bersama sejak</p>
-<p><b>12 Januari 2023</b></p>
-<h1 id="counter"></h1>
-<img src="foto1.jpg">
-<button onclick="next()">Lanjut 💗</button>
+  <h2>💖 Alvan & Anisa 💖</h2>
+  <p>3 tahun pacaran, masih bertahan walau sama-sama nyebelin</p>
+  <img id="slider" src="foto1.jpg">
+  <button onclick="next()">Lanjut 💗</button>
 </section>
 
+<!-- S3 -->
 <section id="s3">
-<h2>📅 Timeline Receh</h2>
-<p>• Tahun 1: Masih jaim 😇</p>
-<p>• Tahun 2: Berantem hal kecil 😤</p>
-<p>• Tahun 3: Tetap bareng 💞</p>
-<img src="foto2.jpg">
-<button onclick="next()">Lanjut ➡️</button>
+  <h2>📅 Timeline Receh</h2>
+  <p>• Tahun 1: Masih jaim 😇</p>
+  <p>• Tahun 2: Berantem hal receh 😤</p>
+  <p>• Tahun 3: Tetap milih satu sama lain 💞</p>
+  <button onclick="next()">Lanjut 👉</button>
 </section>
 
+<!-- S4 -->
 <section id="s4">
-<h2>☑ Alasan Aku Pilih Kamu</h2>
-<p>✔ Lucu walau nyebelin</p>
-<p>✔ Ngambek tapi gemes</p>
-<p>✔ Paling ngerti aku</p>
-<p>✔ Jodoh (aamiin 😌)</p>
-<button onclick="next()">Lanjut 🥰</button>
+  <h2>☑ Alasan Aku Masih Sama Kamu</h2>
+  <p>☑ Lucu walau nyebelin</p>
+  <p>☑ Ngambek tapi gemes</p>
+  <p>☑ Paling ngerti aku</p>
+  <p>☑ Jodoh (aamiin 😌)</p>
+  <button onclick="next()">Lanjut 😌</button>
 </section>
 
+<!-- S5 -->
 <section id="s5">
-<h2>😈 Pertanyaan Penting</h2>
-<p>Kamu sayang aku nggak?</p>
-<button onclick="love()">SAYANG 💖</button>
-<button id="no" onmouseover="kabur()">NGGAK 💔</button>
+  <h2>😈 Pertanyaan Penting</h2>
+  <p>Kamu sayang aku nggak?</p>
+  <button onclick="love()">SAYANG 💖</button>
+  <button id="no" onmouseover="kabur()">NGGAK 💔</button>
 </section>
 
+<!-- S6 -->
 <section id="s6">
-<h2>💌 Surat Cinta</h2>
-<p>
-3 tahun ini nggak selalu mudah,<br>
-tapi aku selalu milih kamu.<br><br>
-Makasih sudah bertahan sama aku 🤍
-</p>
-<img src="foto3.jpg">
-<button onclick="next()">Terakhir 💞</button>
+  <h2>💌 Surat Cinta</h2>
+  <p>
+    3 tahun ini nggak selalu mudah,<br>
+    tapi aku selalu milih kamu.<br><br>
+    Makasih sudah bertahan sama aku 🤍
+  </p>
+  <img src="foto3.jpg">
+  <button onclick="next()">Terakhir 💞</button>
 </section>
 
+<!-- S7 -->
 <section id="s7">
-<h1>🎉 HAPPY 3RD ANNIVERSARY 🎉</h1>
-<p>Aku sayang kamu hari ini, besok, dan selamanya 💖</p>
+  <h1>Happy 3rd Anniversary ❤️</h1>
+  <p>Aku sayang kamu, hari ini, besok, dan seterusnya.</p>
 </section>
 
 <script>
-let step=0;
-const total=7;
+let step = 1;
+const total = 7;
+const music = document.getElementById("music");
 
-// password
-function cek(){
-  if(document.getElementById("pw").value==="120123"){
-    document.getElementById("music").play();
-    show(1);
-  }else{
-    alert("Password salah 😝");
-  }
-}
-
-function show(n){
-  for(let i=0;i<=total;i++){
-    const s=document.getElementById("s"+i);
-    if(s) s.style.display="none";
-  }
-  document.getElementById("s"+n).style.display="flex";
-  step=n;
-}
-
-function next(){
-  if(step<total){
-    show(step+1);
-  }
-}
-
-function kabur(){
-  let b=document.getElementById("no");
-  b.style.position="absolute";
-  b.style.left=Math.random()*80+"%";
-  b.style.top=Math.random()*80+"%";
-}
-
-function love(){
-  alert("Aku tau kok 😘");
+// musik nyala setelah klik pertama
+function start() {
+  music.play();
   next();
 }
 
-// COUNTER LIVE
-const start=new Date("2023-01-12T00:00:00");
-setInterval(()=>{
-  const now=new Date();
-  const diff=now-start;
-  const hari=Math.floor(diff/(1000*60*60*24));
-  const jam=Math.floor(diff/(1000*60*60))%24;
-  const menit=Math.floor(diff/(1000*60))%60;
-  const detik=Math.floor(diff/1000)%60;
-  const el=document.getElementById("counter");
-  if(el){
-    el.innerHTML=`${hari} hari<br>${jam} jam ${menit} menit ${detik} detik 💕`;
+// pindah halaman
+function next() {
+  document.getElementById("s"+step).classList.remove("active");
+  step++;
+  if (step <= total) {
+    document.getElementById("s"+step).classList.add("active");
+    if (step === 7) confettiBoom();
   }
-},1000);
+}
 
-// animasi hati
-setInterval(()=>{
-  let h=document.createElement("div");
-  h.className="heart";
-  h.innerHTML="💗";
-  h.style.left=Math.random()*100+"vw";
+// tombol kabur
+function kabur() {
+  const btn = document.getElementById("no");
+  btn.style.position = "absolute";
+  btn.style.left = Math.random()*70 + "%";
+  btn.style.top = Math.random()*70 + "%";
+}
+
+function love() {
+  alert("Aku tau kok 😘💖");
+  next();
+}
+
+// slider foto
+const photos = ["foto1.jpg","foto2.jpg","foto3.jpg"];
+let idx = 0;
+setInterval(() => {
+  const img = document.getElementById("slider");
+  if (img) {
+    idx = (idx + 1) % photos.length;
+    img.src = photos[idx];
+  }
+}, 2500);
+
+// hati jatuh
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "💗";
+  h.style.left = Math.random()*100 + "vw";
   document.body.appendChild(h);
   setTimeout(()=>h.remove(),5000);
-},2500);
+}, 2000);
+
+// confetti ending
+function confettiBoom() {
+  for (let i = 0; i < 40; i++) {
+    const c = document.createElement("div");
+    c.className = "confetti";
+    c.innerHTML = "🎉";
+    c.style.left = Math.random()*100 + "vw";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),3000);
+  }
+}
 </script>
 
 </body>
