@@ -32,6 +32,14 @@ button{
   cursor:pointer;
   margin:8px;
 }
+input{
+  padding:12px;
+  border-radius:15px;
+  border:none;
+  text-align:center;
+  font-size:18px;
+  width:160px;
+}
 img{
   max-width:260px;
   border-radius:20px;
@@ -56,7 +64,6 @@ img{
   position:fixed;
   width:10px;
   height:10px;
-  background:red;
   animation:conf 3s linear forwards;
 }
 @keyframes conf{
@@ -73,11 +80,12 @@ img{
 
 <!-- PASSWORD -->
 <section id="s0">
-<h1>🔐 Masukin Password</h1>
-<p>Tanggal jadian kita 💖</p>
-<input id="pw" type="number" placeholder="">
+<h1>🔐 Halaman Rahasia</h1>
+<p>Cuma kita yang tau 🤍</p>
+
+<input id="pw" type="password" inputmode="numeric">
 <br><br>
-<button onclick="cek()">Masuk 😘</button>
+<button onclick="cek()">Masuk 💕</button>
 </section>
 
 <section id="s1" style="display:none">
@@ -139,11 +147,11 @@ const photos=["foto1.jpg","foto2.jpg","foto3.jpg"];
 let idx=0;
 
 function cek(){
-  if(document.getElementById("pw").value=="120123"){
+  if(document.getElementById("pw").value==="120123"){
+    document.getElementById("music").play(); // musik NYALA setelah klik
     show(1);
-    document.getElementById("music").play();
-  } else {
-    alert("Salah 😝");
+  }else{
+    alert("Hehe salah 😝");
   }
 }
 
@@ -161,7 +169,7 @@ function next(){
     show(step+1);
     navigator.vibrate?.(50);
   }
-  if(step+1==7) confetti();
+  if(step+1===7) confetti();
 }
 
 function kabur(){
@@ -177,15 +185,6 @@ function love(){
   next();
 }
 
-setInterval(()=>{
-  let h=document.createElement("div");
-  h.className="heart";
-  h.innerHTML="💗";
-  h.style.left=Math.random()*100+"vw";
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),5000);
-},2500);
-
 // hitung hari pacaran
 const start=new Date("2023-01-12");
 const now=new Date();
@@ -196,6 +195,16 @@ Math.floor((now-start)/(1000*60*60*24))+" hari 💞";
 setInterval(()=>{
   const s=document.getElementById("slider");
   if(s){idx=(idx+1)%photos.length;s.src=photos[idx]}
+},2500);
+
+// animasi hati
+setInterval(()=>{
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💗";
+  h.style.left=Math.random()*100+"vw";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),5000);
 },2500);
 
 // confetti
@@ -213,4 +222,3 @@ function confetti(){
 
 </body>
 </html>
-
