@@ -106,17 +106,32 @@ img {
 
 <script>
 let step = 1;
+const total = 7;
+
+function showStep(n) {
+  for (let i = 1; i <= total; i++) {
+    const sec = document.getElementById("s" + i);
+    if (sec) sec.style.display = "none";
+  }
+  const active = document.getElementById("s" + n);
+  if (active) {
+    active.style.display = "block";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+}
+
 function next() {
-  document.getElementById("s"+step)?.style.display="none";
   step++;
-  document.getElementById("s"+step).style.display="block";
+  if (step <= total) {
+    showStep(step);
+  }
 }
 
 function kabur() {
   let btn = document.getElementById("no");
   btn.style.position = "absolute";
-  btn.style.left = Math.random()*80 + "%";
-  btn.style.top = Math.random()*80 + "%";
+  btn.style.left = Math.random() * 80 + "%";
+  btn.style.top = Math.random() * 80 + "%";
 }
 
 function love() {
@@ -124,16 +139,22 @@ function love() {
   next();
 }
 
+// tampilkan halaman pertama saat load
+showStep(1);
+
+// animasi hati
 setInterval(() => {
   let h = document.createElement("div");
   h.className = "heart";
   h.innerHTML = "💗";
-  h.style.left = Math.random()*100 + "vw";
+  h.style.left = Math.random() * 100 + "vw";
   document.body.appendChild(h);
-  setTimeout(()=>h.remove(),5000);
+  setTimeout(() => h.remove(), 5000);
 }, 3000);
 </script>
 
+
 </body>
 </html>
+
 
