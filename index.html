@@ -4,134 +4,193 @@
 <meta charset="UTF-8">
 <title>3 Tahun Alvan & Anisa 💖</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body {
-  margin: 0;
-  font-family: 'Comic Sans MS', cursive;
-  background: linear-gradient(#ffd6e8, #fff);
-  text-align: center;
-  overflow-x: hidden;
+body{
+  margin:0;
+  font-family:'Comic Sans MS',cursive;
+  background:linear-gradient(#ffd6e8,#fff);
+  text-align:center;
+  overflow-x:hidden;
 }
-section {
-  padding: 50px 20px;
+section{
+  min-height:100vh;
+  padding:60px 20px;
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 }
-h1, h2 {
-  color: #ff4d88;
+h1,h2{color:#ff4d88}
+button{
+  background:#ff4d88;
+  color:white;
+  border:none;
+  padding:14px 24px;
+  border-radius:25px;
+  font-size:16px;
+  cursor:pointer;
+  margin-top:20px;
 }
-button {
-  background: #ff4d88;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 20px;
-  font-size: 16px;
-  cursor: pointer;
+button:hover{background:#ff1f6a}
+input{
+  padding:12px;
+  border-radius:15px;
+  border:none;
+  text-align:center;
+  font-size:18px;
+  width:160px;
 }
-button:hover {
-  background: #ff1f6a;
+img{
+  max-width:260px;
+  border-radius:20px;
+  margin:15px 0;
 }
-img {
-  max-width: 250px;
-  border-radius: 20px;
-  margin: 10px;
+.heart{
+  position:fixed;
+  top:-10px;
+  font-size:20px;
+  animation:fall 5s linear infinite;
 }
-.heart {
-  position: fixed;
-  top: -10px;
-  font-size: 20px;
-  animation: fall 5s linear infinite;
-}
-@keyframes fall {
-  to { transform: translateY(100vh); }
-}
+@keyframes fall{to{transform:translateY(100vh)}}
 </style>
 </head>
 
 <body>
 
-<audio id="music" autoplay loop>
+<audio id="music" loop>
   <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7c59a3cc8f.mp3">
 </audio>
 
-<section>
-  <h1>HALO CINTAKU CAYANGKU PUNYAKU 💕</h1>
-  <p>Siap baca cerita kita selama 3 tahun?</p>
-  <button onclick="next()">Siap dong 😘</button>
+<!-- PASSWORD -->
+<section id="s0" style="display:flex">
+<h1>🔐 Halaman Rahasia</h1>
+<p>Cuma kita yang tau 🤍</p>
+<input id="pw" type="password" inputmode="numeric">
+<button onclick="cek()">Masuk 💕</button>
 </section>
 
-<section id="s2" style="display:none;">
-  <h2>💖 Alvan & Anisa 💖</h2>
-  <p>3 Tahun pacaran, masih bertahan walau sama-sama nyebelin</p>
-  <img src="foto1.jpg">
+<section id="s1">
+<h1>HALO CINTAKU CAYANGKU PUNYAKU 💕</h1>
+<p>Siap baca cerita kita?</p>
+<button onclick="next()">Siap dong 😘</button>
 </section>
 
-<section id="s3" style="display:none;">
-  <h2>📅 Timeline Receh</h2>
-  <p>• Tahun 1: Masih jaim 😇</p>
-  <p>• Tahun 2: Mulai berantem hal nggak penting 😤</p>
-  <p>• Tahun 3: Tetap milih satu sama lain 💞</p>
-  <img src="foto2.jpg">
+<section id="s2">
+<h2>💖 Alvan & Anisa 💖</h2>
+<p>Kita sudah bersama sejak</p>
+<p><b>12 Januari 2023</b></p>
+<h1 id="counter"></h1>
+<img src="foto1.jpg">
+<button onclick="next()">Lanjut 💗</button>
 </section>
 
-<section id="s4" style="display:none;">
-  <h2>☑ Alasan Aku Masih Sama Kamu</h2>
-  <p>☑ Lucu walau nyebelin</p>
-  <p>☑ Ngambek tapi gemes</p>
-  <p>☑ Paling ngerti aku</p>
-  <p>☑ Jodoh (aamiin 😌)</p>
+<section id="s3">
+<h2>📅 Timeline Receh</h2>
+<p>• Tahun 1: Masih jaim 😇</p>
+<p>• Tahun 2: Berantem hal kecil 😤</p>
+<p>• Tahun 3: Tetap bareng 💞</p>
+<img src="foto2.jpg">
+<button onclick="next()">Lanjut ➡️</button>
 </section>
 
-<section id="s5" style="display:none;">
-  <h2>😈 Pertanyaan Penting</h2>
-  <p>Kamu sayang aku nggak?</p>
-  <button onclick="love()">SAYANG 💖</button>
-  <button id="no" onmouseover="kabur()">NGGAK 💔</button>
+<section id="s4">
+<h2>☑ Alasan Aku Pilih Kamu</h2>
+<p>✔ Lucu walau nyebelin</p>
+<p>✔ Ngambek tapi gemes</p>
+<p>✔ Paling ngerti aku</p>
+<p>✔ Jodoh (aamiin 😌)</p>
+<button onclick="next()">Lanjut 🥰</button>
 </section>
 
-<section id="s6" style="display:none;">
-  <h2>💌 Surat Cinta</h2>
-  <p>
-    3 tahun ini nggak selalu mudah,<br>
-    tapi aku selalu milih kamu.<br><br>
-    Makasih sudah bertahan sama aku.<br>
-    Aku harap kita bisa terus bareng 🤍
-  </p>
-  <img src="foto3.jpg">
+<section id="s5">
+<h2>😈 Pertanyaan Penting</h2>
+<p>Kamu sayang aku nggak?</p>
+<button onclick="love()">SAYANG 💖</button>
+<button id="no" onmouseover="kabur()">NGGAK 💔</button>
 </section>
 
-<section id="s7" style="display:none;">
-  <h1>Happy 3rd Anniversary ❤️</h1>
-  <p>Aku sayang kamu, hari ini, besok, dan seterusnya.</p>
+<section id="s6">
+<h2>💌 Surat Cinta</h2>
+<p>
+3 tahun ini nggak selalu mudah,<br>
+tapi aku selalu milih kamu.<br><br>
+Makasih sudah bertahan sama aku 🤍
+</p>
+<img src="foto3.jpg">
+<button onclick="next()">Terakhir 💞</button>
+</section>
+
+<section id="s7">
+<h1>🎉 HAPPY 3RD ANNIVERSARY 🎉</h1>
+<p>Aku sayang kamu hari ini, besok, dan selamanya 💖</p>
 </section>
 
 <script>
-let step = 1;
-function next() {
-  document.getElementById("s"+step)?.style.display="none";
-  step++;
-  document.getElementById("s"+step).style.display="block";
+let step=0;
+const total=7;
+
+// password
+function cek(){
+  if(document.getElementById("pw").value==="120123"){
+    document.getElementById("music").play();
+    show(1);
+  }else{
+    alert("Password salah 😝");
+  }
 }
 
-function kabur() {
-  let btn = document.getElementById("no");
-  btn.style.position = "absolute";
-  btn.style.left = Math.random()*80 + "%";
-  btn.style.top = Math.random()*80 + "%";
+function show(n){
+  for(let i=0;i<=total;i++){
+    const s=document.getElementById("s"+i);
+    if(s) s.style.display="none";
+  }
+  document.getElementById("s"+n).style.display="flex";
+  step=n;
 }
 
-function love() {
-  alert("Aku tau kok 😘💖");
+function next(){
+  if(step<total){
+    show(step+1);
+  }
+}
+
+function kabur(){
+  let b=document.getElementById("no");
+  b.style.position="absolute";
+  b.style.left=Math.random()*80+"%";
+  b.style.top=Math.random()*80+"%";
+}
+
+function love(){
+  alert("Aku tau kok 😘");
   next();
 }
 
-setInterval(() => {
-  let h = document.createElement("div");
-  h.className = "heart";
-  h.innerHTML = "💗";
-  h.style.left = Math.random()*100 + "vw";
+// COUNTER LIVE
+const start=new Date("2023-01-12T00:00:00");
+setInterval(()=>{
+  const now=new Date();
+  const diff=now-start;
+  const hari=Math.floor(diff/(1000*60*60*24));
+  const jam=Math.floor(diff/(1000*60*60))%24;
+  const menit=Math.floor(diff/(1000*60))%60;
+  const detik=Math.floor(diff/1000)%60;
+  const el=document.getElementById("counter");
+  if(el){
+    el.innerHTML=`${hari} hari<br>${jam} jam ${menit} menit ${detik} detik 💕`;
+  }
+},1000);
+
+// animasi hati
+setInterval(()=>{
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💗";
+  h.style.left=Math.random()*100+"vw";
   document.body.appendChild(h);
   setTimeout(()=>h.remove(),5000);
-}, 3000);
+},2500);
 </script>
 
 </body>
