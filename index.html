@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>3 Tahun Alvan & Anisa 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive;
+  background: linear-gradient(#ffd6e8, #fff);
+  text-align: center;
+  overflow-x: hidden;
+}
+section {
+  padding: 50px 20px;
+}
+h1, h2 {
+  color: #ff4d88;
+}
+button {
+  background: #ff4d88;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:hover {
+  background: #ff1f6a;
+}
+img {
+  max-width: 250px;
+  border-radius: 20px;
+  margin: 10px;
+}
+.heart {
+  position: fixed;
+  top: -10px;
+  font-size: 20px;
+  animation: fall 5s linear infinite;
+}
+@keyframes fall {
+  to { transform: translateY(100vh); }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7c59a3cc8f.mp3">
+</audio>
+
+<section>
+  <h1>HALO CINTAKU CAYANGKU PUNYAKU 💕</h1>
+  <p>Siap baca cerita kita selama 3 tahun?</p>
+  <button onclick="next()">Siap dong 😘</button>
+</section>
+
+<section id="s2" style="display:none;">
+  <h2>💖 Alvan & Anisa 💖</h2>
+  <p>3 Tahun pacaran, masih bertahan walau sama-sama nyebelin</p>
+  <img src="foto1.jpg">
+</section>
+
+<section id="s3" style="display:none;">
+  <h2>📅 Timeline Receh</h2>
+  <p>• Tahun 1: Masih jaim 😇</p>
+  <p>• Tahun 2: Mulai berantem hal nggak penting 😤</p>
+  <p>• Tahun 3: Tetap milih satu sama lain 💞</p>
+  <img src="foto2.jpg">
+</section>
+
+<section id="s4" style="display:none;">
+  <h2>☑ Alasan Aku Masih Sama Kamu</h2>
+  <p>☑ Lucu walau nyebelin</p>
+  <p>☑ Ngambek tapi gemes</p>
+  <p>☑ Paling ngerti aku</p>
+  <p>☑ Jodoh (aamiin 😌)</p>
+</section>
+
+<section id="s5" style="display:none;">
+  <h2>😈 Pertanyaan Penting</h2>
+  <p>Kamu sayang aku nggak?</p>
+  <button onclick="love()">SAYANG 💖</button>
+  <button id="no" onmouseover="kabur()">NGGAK 💔</button>
+</section>
+
+<section id="s6" style="display:none;">
+  <h2>💌 Surat Cinta</h2>
+  <p>
+    3 tahun ini nggak selalu mudah,<br>
+    tapi aku selalu milih kamu.<br><br>
+    Makasih sudah bertahan sama aku.<br>
+    Aku harap kita bisa terus bareng 🤍
+  </p>
+  <img src="foto3.jpg">
+</section>
+
+<section id="s7" style="display:none;">
+  <h1>Happy 3rd Anniversary ❤️</h1>
+  <p>Aku sayang kamu, hari ini, besok, dan seterusnya.</p>
+</section>
+
+<script>
+let step = 1;
+function next() {
+  document.getElementById("s"+step)?.style.display="none";
+  step++;
+  document.getElementById("s"+step).style.display="block";
+}
+
+function kabur() {
+  let btn = document.getElementById("no");
+  btn.style.position = "absolute";
+  btn.style.left = Math.random()*80 + "%";
+  btn.style.top = Math.random()*80 + "%";
+}
+
+function love() {
+  alert("Aku tau kok 😘💖");
+  next();
+}
+
+setInterval(() => {
+  let h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "💗";
+  h.style.left = Math.random()*100 + "vw";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),5000);
+}, 3000);
+</script>
+
+</body>
+</html>
